@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# resolve links - $0 may be a softlink
+PRG="$0"
+
+while [ -h "$PRG" ] ; do
+  ls=`ls -ld "$PRG"`
+  link=`expr "$ls" : '.*-> \(.*\)$'`
+  if expr "$link" : '/.*' > /dev/null; then
+    PRG="$link"
+  else
+    PRG=`dirname "$PRG"`/"$link"
+  fi
+done
+
+PRGDIR=`dirname "$PRG"`
+VPC2VPC_HOME=`cd "$PRGDIR/.." >/dev/null; pwd`
+
+unset CLASSPATH
+CLASSPATH=$VPC2VPC_HOME/conf
+for i in `ls $VPC2VPC_HOME/lib`
+do
+  CLASSPATH=$CLASSPATH:$VPC2VPC_HOME/lib/$i
+done
+
+java -cp $CLASSPATH vpc2vpc.Main $@

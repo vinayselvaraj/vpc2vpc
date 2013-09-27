@@ -1,0 +1,16 @@
+cat > /etc/ipsec.d/_SRC_VPC_ID_-_DEST_VPC_ID_.conf << EOF
+conn _SRC_VPC_ID_-_DEST_VPC_ID_
+	type=tunnel
+	authby=secret
+	left=%defaultroute
+	leftid=_SRC_VPC_EIP_
+	leftnexthop=%defaultroute
+	leftsubnet=_SRC_VPC_CIDR_
+	right=_DEST_VPC_EIP_
+	rightsubnet=_DEST_VPC_CIDR_
+	pfs=yes
+	auto=start
+EOF
+cat > /etc/ipsec.d/_SRC_VPC_ID_-_DEST_VPC_ID_.secrets << EOF
+_SRC_VPC_EIP_ _DEST_VPC_EIP_: PSK "_VPC2VPC_ID_"
+EOF
