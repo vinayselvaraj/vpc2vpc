@@ -20,22 +20,24 @@ You will need to have the following in order to use vpc2vpc:
 
 To create a vpc2vpc connection, you can specify the VPCs you'd like to connect using CIDR notation or VPC ID.  You can also specify the specific public subnet you wish to launch the VPN instances by CIDR notation or Subnet ID.  See the examples below for details:
 
-### Examples
-
 	# Create a connection between VPCs using CIDR notation
 	$ vpc2vpc create 10.1.0.0/16 10.2.0.0/16
 
 	# Create a connections between three VPCs using CIDR notation
 	$ vpc2vpc create 10.1.0.0/16 10.2.0.0/16 10.3.0.0/16
 
-	# Create connections between three VPCs but specify a specific subnet for the VPN instances in the 10.1.0.0/16 VPC
+	# Create connections between three VPCs and specify a subnet CIDR of the public subnet in the first VPC
 	$ vpc2vpc create 10.1.0.0/24 10.2.0.0/16 10.3.0.0/16
 
 ## Listing vpc2vpc Connections
+
+Run the command below to list vpc2vpc connections in your AWS account.  The command may take a moment to run since it needs to gather information from all AWS regions.
 
 	$ vpc2vpc list
 
 ## Deleting vpc2vpc Connections
 
-	$ vpc2vpc delete
+To delete a vpc2vpc connect, use the delete command and pass the ID of the vpc2vpc connection.  See the example below:
+
+	$ vpc2vpc delete -i vpc2vpc-1e39f445
 
