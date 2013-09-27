@@ -28,14 +28,19 @@ public class Main {
     }
 
     // Get credentials
-    String accessKey = System.getenv("AWS_ACCESS_KEY_ID").trim();
-    String secretKey = System.getenv("AWS_SECRET_ACCESS_KEY").trim();
+    String accessKey = System.getenv("AWS_ACCESS_KEY_ID");
+    String secretKey = System.getenv("AWS_SECRET_ACCESS_KEY");
 
     if (accessKey == null || secretKey == null) {
       System.err.println("Please set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables");
       System.exit(1);
     }
-    
+
+    if (accessKey != null && secretKey != null) {
+      accessKey = accessKey.trim();
+      secretKey = secretKey.trim();
+    }
+
     AWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
 
     if (args[0].equals("list")) {
