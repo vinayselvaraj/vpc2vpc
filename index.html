@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>vpc2vpc by vinayselvaraj</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>vpc2vpc</h1>
+        <h2>vpc2vpc connects Virtual Private Clouds (VPC) using IPSEC VPNs</h2>
+        <a href="https://github.com/vinayselvaraj/vpc2vpc" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="vpc2vpc--site-to-site-vpn-tunnels-for-virtual-private-clouds-vpc" class="anchor" href="#vpc2vpc--site-to-site-vpn-tunnels-for-virtual-private-clouds-vpc"><span class="octicon octicon-link"></span></a>vpc2vpc : Site to Site VPN Tunnels for Virtual Private Clouds (VPC)</h1>
+
+<p>This tool will automate the process of setting up EC2 instances to build site to site VPN tunnels between VPCs in your AWS cloud.  Use this at your own risk.  It hasn't been fully tested and is in the early stages of development.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>You will need to have the following in order to use vpc2vpc:</p>
+
+<ul>
+<li>Java 1.6+</li>
+<li>AWS Access Key and Secret Access Key</li>
+<li>Two or more VPCs to connect</li>
+</ul><h2>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<p>Go to the releases page to download the latest release of vpc2vpc
+<a href="https://github.com/vinayselvaraj/vpc2vpc/releases">https://github.com/vinayselvaraj/vpc2vpc/releases</a></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li>Extract the downloaded tar.gz file in your preferred location</li>
+<li>Set the bin directory under the extracted vpc2vpc directory in your PATH</li>
+<li>Set the JAVA_HOME variable pointing to JRE/JDK you wish to use</li>
+<li>Set the AWS_ACCESS_KEY_ID &amp; AWS_SECRET_ACCESS_KEY environment variables</li>
+</ol><h2>
+<a name="creating-a-vpc2vpc-connection" class="anchor" href="#creating-a-vpc2vpc-connection"><span class="octicon octicon-link"></span></a>Creating a vpc2vpc Connection</h2>
+
+<p>To create a vpc2vpc connection, you can specify the VPCs you'd like to connect using CIDR notation or VPC ID.  You can also specify the specific public subnet you wish to launch the VPN instances by CIDR notation or Subnet ID.  See the examples below for details:</p>
+
+<pre><code># Create a connection between VPCs using CIDR notation
+$ vpc2vpc create 10.1.0.0/16 10.2.0.0/16
+
+# Create a connections between three VPCs using CIDR notation
+$ vpc2vpc create 10.1.0.0/16 10.2.0.0/16 10.3.0.0/16
+
+# Create connections between three VPCs and specify a subnet CIDR of the public subnet in the first VPC
+$ vpc2vpc create 10.1.0.0/24 10.2.0.0/16 10.3.0.0/16
+</code></pre>
+
+<h2>
+<a name="listing-vpc2vpc-connections" class="anchor" href="#listing-vpc2vpc-connections"><span class="octicon octicon-link"></span></a>Listing vpc2vpc Connections</h2>
+
+<p>Run the command below to list vpc2vpc connections in your AWS account.  The command may take a moment to run since it needs to gather information from all AWS regions.</p>
+
+<pre><code>$ vpc2vpc list
+</code></pre>
+
+<h2>
+<a name="deleting-vpc2vpc-connections" class="anchor" href="#deleting-vpc2vpc-connections"><span class="octicon octicon-link"></span></a>Deleting vpc2vpc Connections</h2>
+
+<p>To delete a vpc2vpc connect, use the delete command and pass the ID of the vpc2vpc connection.  See the example below:</p>
+
+<pre><code>$ vpc2vpc delete -i vpc2vpc-1e39f445
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/vinayselvaraj/vpc2vpc/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/vinayselvaraj/vpc2vpc/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/vinayselvaraj/vpc2vpc"></a> is maintained by <a href="https://github.com/vinayselvaraj">vinayselvaraj</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-44406878-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
