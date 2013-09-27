@@ -9,6 +9,11 @@ You will need to have the following in order to use vpc2vpc:
 * AWS Access Key and Secret Access Key
 * Two or more VPCs to connect
 
+## Download
+
+Go to the releases page to download the latest release of vpc2vpc
+<https://github.com/vinayselvaraj/vpc2vpc/releases>
+
 ## Installation
 
 1. Extract the downloaded tar.gz file in your preferred location
