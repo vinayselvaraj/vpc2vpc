@@ -1,4 +1,4 @@
-# vpc2vpc : Site to Site VPN Tunnels for Virtual Private Clouds (VPC)
+# vpc2vpc : VPC to VPC VPN Tunnels for Virtual Private Clouds (VPC)
 This tool will automate the process of setting up EC2 instances to build site to site VPN tunnels between VPCs in your AWS cloud.  Use this at your own risk.  It hasn't been fully tested and is in the early stages of development.  This automates the steps described in the following document: https://aws.amazon.com/articles/5472675506466066
 
 ## Requirements
